@@ -7,7 +7,8 @@ protocol NetWorkHerosProtocol {
 final class NetWorkHeros: NetWorkHerosProtocol {
     func getHeros() async -> [HerosModel] {
         
-        var modelReturn = [HerosModel]()
+        var modelReturn: ResponseModel
+        var heros = [HerosModel]()
         
         let urlCad = "\(ConstantsApp.CONST_API_URL)\(Endpoints.heros.rawValue)?ts=1&apikey=806fdb915bd59ec732b51e06137bd59a&hash=6696d834975890e11e337172240f07b9"
         var request = URLRequest(url: URL(string: urlCad)!)
@@ -17,31 +18,29 @@ final class NetWorkHeros: NetWorkHerosProtocol {
         do{
             
             let (data, response) = try await URLSession.shared.data(for: request)
-            print(data)
-            
+
             if (response.getResponseCode() == HttpResponseCodes.SUCESS){
-                modelReturn = try! JSONDecoder().decode([HerosModel].self, from: data)
+                modelReturn = try! JSONDecoder().decode(ResponseModel.self, from: data)
+                heros = modelReturn.data.results
             }
         } catch {
             NSLog("Error en heroes: \(error.localizedDescription)")
         }
-        
-        
-        return modelReturn
-        
+
+        return heros
     }
 }
 
 
 final class NetworkHerosMock: NetWorkHerosProtocol{
     func getHeros() async -> [HerosModel]{
-        let model1 = HerosModel(id: UUID(), name: "Goku", thumbnail: Thumbnail(
-            path: "https://cdn.alfabetajuega.com/alfabetajuega/2020/12/goku1",
+        let model1 = HerosModel(id: 123, name: "Abomination", thumbnail: Thumbnail(
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04",
             thumbnailExtension: "jpg"
         ))
         
-        let model2 = HerosModel(id: UUID(), name: "Vegeta", thumbnail: Thumbnail(
-            path: "https://cdn.alfabetajuega.com/alfabetajuega/2020/12/vegetita",
+        let model2 = HerosModel(id: 321, name: "Agent Zero", thumbnail: Thumbnail(
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c0042121d790",
             thumbnailExtension: "jpg"
         ))
         

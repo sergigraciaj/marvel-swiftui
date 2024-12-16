@@ -1,10 +1,3 @@
-//
-//  HerosViewModel.swift
-//  kcHerosMultiSwiftUI
-//
-//  Created by Jose Luis Bustos Esteban on 10/12/24.
-//
-
 import Foundation
 
 @Observable

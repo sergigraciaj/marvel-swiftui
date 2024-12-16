@@ -11,11 +11,18 @@ struct HeroListView: View {
     }
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("PrincipalView")
+        NavigationStack{
+            List{
+                ForEach(viewModel.herosData){ hero in
+                    NavigationLink {
+                        //Destination
+                    } label: {
+                        AsyncImage(url: URL(string: "\(hero.thumbnail.path).\(hero.thumbnail.thumbnailExtension)"))
+                        Text(hero.name)
+                    }
+                    
+                }
+            }
         }
         .padding()
     }
