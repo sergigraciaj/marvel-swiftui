@@ -13,5 +13,5 @@ struct LoaderView: View {
 }
 
 #Preview {
-    ContentView()
+    LoaderView()
 }

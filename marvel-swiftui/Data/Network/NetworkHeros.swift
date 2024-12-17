@@ -10,7 +10,7 @@ final class NetWorkHeros: NetWorkHerosProtocol {
         var modelReturn: ResponseModel
         var heros = [HerosModel]()
         
-        let urlCad = "\(ConstantsApp.CONST_API_URL)\(Endpoints.heros.rawValue)?ts=1&apikey=806fdb915bd59ec732b51e06137bd59a&hash=6696d834975890e11e337172240f07b9"
+        let urlCad = "\(ConstantsApp.CONST_API_URL)\(Endpoints.heros.rawValue)\(ConstantsApp.CONST_API_HASH)"
         var request = URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HttpMethods.get
         request.addValue(HttpMethods.content, forHTTPHeaderField: HttpMethods.contentTypeID)

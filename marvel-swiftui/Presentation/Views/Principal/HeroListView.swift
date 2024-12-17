@@ -15,10 +15,9 @@ struct HeroListView: View {
             List{
                 ForEach(viewModel.herosData){ hero in
                     NavigationLink {
-                        //Destination
+                        HeroDetailView()
                     } label: {
-                        AsyncImage(url: URL(string: "\(hero.thumbnail.path).\(hero.thumbnail.thumbnailExtension)"))
-                        Text(hero.name)
+                        HeroRowView(hero: hero)
                     }
                     
                 }

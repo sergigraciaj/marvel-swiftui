@@ -1,24 +1,17 @@
-//
-//  ContentView.swift
-//  marvel-swiftui
-//
-//  Created by Sergio Gracia Jimenez on 16/12/24.
-//
-
 import SwiftUI
 
-struct ContentView: View {
+struct HeroDetailView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("HeroDetailView")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    HeroDetailView()
 }

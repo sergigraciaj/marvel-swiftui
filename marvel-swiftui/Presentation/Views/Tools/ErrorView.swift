@@ -13,5 +13,5 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ContentView()
+    ErrorView()
 }
