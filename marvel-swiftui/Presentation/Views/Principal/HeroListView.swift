@@ -1,10 +1,7 @@
 import SwiftUI
 
-struct HeroListView: View {
-    @Environment(AppStateVM.self) var appState
-    
+struct HeroListView: View {    
     @State var viewModel: HerosViewModel
-  
 
     init(viewModel: HerosViewModel = HerosViewModel()) {
         self.viewModel = viewModel
@@ -29,5 +26,4 @@ struct HeroListView: View {
 
 #Preview {
     HeroListView(viewModel: HerosViewModel(useCaseHeros: HerosUseCaseMock()))
-        .environment(AppStateVM())
 }
