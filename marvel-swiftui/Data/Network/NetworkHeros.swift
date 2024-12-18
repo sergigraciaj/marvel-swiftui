@@ -7,7 +7,7 @@ protocol NetWorkHerosProtocol {
 final class NetWorkHeros: NetWorkHerosProtocol {
     func getHeros() async -> [HerosModel] {
         
-        var modelReturn: ResponseModel
+        var modelReturn: ResponseModel<HerosModel>
         var heros = [HerosModel]()
         
         let urlCad = "\(ConstantsApp.CONST_API_URL)\(Endpoints.heros.rawValue)\(ConstantsApp.CONST_API_HASH)"
