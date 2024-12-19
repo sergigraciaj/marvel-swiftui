@@ -15,5 +15,5 @@ public struct DataModel<T: Codable>: Codable {
     public let limit: Int
     public let total: Int
     public let count: Int
-    public let results: [T]
+    public let results: T
 }

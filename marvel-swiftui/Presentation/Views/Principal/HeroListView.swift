@@ -12,7 +12,7 @@ struct HeroListView: View {
             List{
                 ForEach(viewModel.herosData){ hero in
                     NavigationLink {
-                        HeroDetailView()
+                        HeroDetailView(id: hero.id)
                     } label: {
                         HeroRowView(hero: hero)
                     }

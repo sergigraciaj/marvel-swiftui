@@ -1,17 +1,24 @@
 import SwiftUI
 
 struct HeroDetailView: View {
+    @State var viewModel: HeroDetailViewModel
+
+    init(id: Int, viewModel: HeroDetailViewModel? = nil) {
+        self.viewModel = viewModel ?? HeroDetailViewModel(id: id)
+    }
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("HeroDetailView")
+            if let heroDetail = viewModel.heroDetailData {
+                Text("Hero Name: \(heroDetail.name)")
+            } else {
+                Text("Loading hero details...")
+            }
         }
         .padding()
     }
 }
 
 #Preview {
-    HeroDetailView()
+    HeroDetailView(id: 2, viewModel: HeroDetailViewModel(id: 2, useCaseHeroDetail: HeroDetailUseCaseMock()))
 }

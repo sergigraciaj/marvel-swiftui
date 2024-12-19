@@ -18,8 +18,6 @@ final class HerosUseCase :HerosUseCaseProtocol {
     }
 }
 
-
-
 final class HerosUseCaseMock :HerosUseCaseProtocol {
     var repo : HerosRepositoryProtocol
     

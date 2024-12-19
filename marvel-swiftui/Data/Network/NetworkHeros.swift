@@ -7,7 +7,7 @@ protocol NetWorkHerosProtocol {
 final class NetWorkHeros: NetWorkHerosProtocol {
     func getHeros() async -> [HerosModel] {
         
-        var modelReturn: ResponseModel<HerosModel>
+        var modelReturn: ResponseModel<[HerosModel]>
         var heros = [HerosModel]()
         
         let urlCad = "\(ConstantsApp.CONST_API_URL)\(Endpoints.heros.rawValue)\(ConstantsApp.CONST_API_HASH)"
@@ -47,14 +47,4 @@ final class NetworkHerosMock: NetWorkHerosProtocol{
         return [model1, model2]
     }
     
-}
-
-extension URLResponse {
-    func getResponseCode() -> Int {
-        if let resp = self as? HTTPURLResponse {
-            return resp.statusCode
-        } else{
-            return 500
-        }
-    }
 }

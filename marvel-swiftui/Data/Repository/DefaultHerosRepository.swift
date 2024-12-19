@@ -13,9 +13,6 @@ final class HerosRespository: HerosRepositoryProtocol {
     }
 }
 
-
-//Mock
-
 final class HerosRespositoryMock: HerosRepositoryProtocol {
     private var Network: NetWorkHerosProtocol
     
