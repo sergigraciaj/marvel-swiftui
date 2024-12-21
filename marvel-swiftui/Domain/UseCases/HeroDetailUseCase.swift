@@ -2,7 +2,7 @@ import Foundation
 
 protocol HeroDetailUseCaseProtocol {
     var repo: HeroDetailRepositoryProtocol {get set}
-    func getHeroDetail(id: Int) async -> HeroDetailModel?
+    func getHeroDetail(id: Int) async -> [HeroDetailModel]
 }
 
 final class HeroDetailUseCase :HeroDetailUseCaseProtocol {
@@ -12,8 +12,8 @@ final class HeroDetailUseCase :HeroDetailUseCaseProtocol {
         self.repo = repo
     }
     
-    func getHeroDetail(id: Int) async -> HeroDetailModel? {
-        await repo.getHeroDetail(id: id) ?? nil
+    func getHeroDetail(id: Int) async -> [HeroDetailModel] {
+        await repo.getHeroDetail(id: id)
     }
 }
 
@@ -24,8 +24,8 @@ final class HeroDetailUseCaseMock :HeroDetailUseCaseProtocol {
         self.repo = repo
     }
     
-    func getHeroDetail(id: Int) async -> HeroDetailModel? {
-        await repo.getHeroDetail(id: id) ?? nil
+    func getHeroDetail(id: Int) async -> [HeroDetailModel] {
+        await repo.getHeroDetail(id: id)
     }
 }
 

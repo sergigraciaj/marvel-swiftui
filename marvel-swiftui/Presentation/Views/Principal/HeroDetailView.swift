@@ -9,10 +9,29 @@ struct HeroDetailView: View {
     
     var body: some View {
         VStack {
-            if let heroDetail = viewModel.heroDetailData {
-                Text("Hero Name: \(heroDetail.name)")
-            } else {
-                Text("Loading hero details...")
+            List{
+                ForEach(viewModel.heroDetailData){ hero in
+                    Text(hero.title).fontWeight(.bold)
+                    
+                    AsyncImage(url: URL(string: hero.photo)) { photo in
+                        photo
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(20)
+                            .padding([.leading, .trailing], 20)
+                            .opacity(0.9)
+                        
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                    }
+                    
+                    if (hero.description != nil) {
+                        Text(hero.description!)
+                    }
+                    
+                    Spacer()
+                }
             }
         }
         .padding()

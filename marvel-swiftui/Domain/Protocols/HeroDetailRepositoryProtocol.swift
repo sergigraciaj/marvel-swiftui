@@ -1,5 +1,5 @@
 import Foundation
 
 protocol HeroDetailRepositoryProtocol{
-    func getHeroDetail(id: Int) async -> HeroDetailModel?
+    func getHeroDetail(id: Int) async -> [HeroDetailModel]
 }

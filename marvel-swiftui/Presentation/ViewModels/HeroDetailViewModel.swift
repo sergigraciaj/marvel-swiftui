@@ -2,7 +2,7 @@ import Foundation
 
 @Observable
 final class HeroDetailViewModel {
-    var heroDetailData: HeroDetailModel?
+    var heroDetailData = [HeroDetailModel]()
     
     @ObservationIgnored
     private var useCaseHeroDetail: HeroDetailUseCaseProtocol

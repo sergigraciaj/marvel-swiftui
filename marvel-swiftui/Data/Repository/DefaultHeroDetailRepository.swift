@@ -7,8 +7,8 @@ final class HeroDetailRepository: HeroDetailRepositoryProtocol {
         self.Network = Network
     }
     
-    func getHeroDetail(id: Int) async -> HeroDetailModel? {
-        return await Network.getHeroDetail(id: id) ?? nil
+    func getHeroDetail(id: Int) async -> [HeroDetailModel] {
+        return await Network.getHeroDetail(id: id)
     }
 }
 
@@ -19,7 +19,7 @@ final class HeroDetailRespositoryMock: HeroDetailRepositoryProtocol {
         self.Network = Network
     }
     
-    func getHeroDetail(id: Int) async -> HeroDetailModel? {
-        return await Network.getHeroDetail(id: id) ?? nil
+    func getHeroDetail(id: Int) async -> [HeroDetailModel] {
+        return await Network.getHeroDetail(id: id)
     }
 }

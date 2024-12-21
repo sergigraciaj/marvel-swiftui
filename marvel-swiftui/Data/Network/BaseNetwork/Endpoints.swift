@@ -1,6 +1,15 @@
 import Foundation
 
-enum Endpoints: String {
-    case heros = "/public/characters"
-    case heroDetail = "/public/characters/"
+enum Endpoints {
+    case heros
+    case heroDetail(id: Int)
+
+    var path: String {
+        switch self {
+        case .heros:
+            return "/public/characters"
+        case .heroDetail(let id):
+            return "/public/characters/\(id)/series"
+        }
+    }
 }
