@@ -4,30 +4,38 @@ struct HeroRowView: View {
     var hero: HerosModel
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .bottom) {
+            Rectangle()
+                .fill(Color.black)
+                .cornerRadius(10)
+                .shadow(color: .black, radius: 10, x: 0, y: 10)
+                .padding(10)
+            
             AsyncImage(url: URL(string: hero.photo)) { photo in
                 photo
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(20)
-                    .padding([.leading, .trailing], 20)
-                    .opacity(0.9)
-                
+                    .cornerRadius(10)
+                    .padding(10)
             } placeholder: {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
             }
-
-            VStack(alignment: .leading){
-                HStack{
-                    Text(hero.name)
-                        .font(.title)
-                        .bold()
-                        .padding(.leading, 30)
-                    
-                    Spacer()
-                }
+ 
+            HStack() {
+                Text(hero.name)
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.leading, 30)
+                    .padding(.bottom, 20)
+                    .foregroundStyle(.black)
+                
+                Spacer()
             }
+            .background(.white)
+            .roundedCorner(10, corners: [.bottomLeft, .bottomRight])
+            .padding(10)
+
         }
     }
 }
