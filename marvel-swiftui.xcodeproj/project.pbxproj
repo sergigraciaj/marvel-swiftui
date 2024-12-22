@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6A616E142D18BCE000C74592 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 6A616E132D18BCE000C74592 /* ViewInspector */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6A64F6572D109C5C003457D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A616E142D18BCE000C74592 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +131,7 @@
 			);
 			name = "marvel-swiftuiTests";
 			packageProductDependencies = (
+				6A616E132D18BCE000C74592 /* ViewInspector */,
 			);
 			productName = "marvel-swiftuiTests";
 			productReference = 6A64F6562D109C5C003457D1 /* marvel-swiftuiTests.xctest */;
@@ -159,6 +165,9 @@
 			);
 			mainGroup = 6A64F63D2D109C5B003457D1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6A616E122D18BCE000C74592 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6A64F6472D109C5B003457D1 /* Products */;
 			projectDirPath = "";
@@ -461,6 +470,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A616E122D18BCE000C74592 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A616E132D18BCE000C74592 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A616E122D18BCE000C74592 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A64F63E2D109C5B003457D1 /* Project object */;
 }

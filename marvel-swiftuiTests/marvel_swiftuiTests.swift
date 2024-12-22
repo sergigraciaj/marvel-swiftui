@@ -1,4 +1,6 @@
 import Testing
+import SwiftUI
+import ViewInspector
 @testable import marvel_swiftui
 
 struct marvel_swiftuiTests {
@@ -101,6 +103,15 @@ struct marvel_swiftuiTests {
                 
                 await heroDetailVM.getHeroDetail(id: 1)
                 #expect(heroDetailVM.heroDetailData.count == 1)
+            }
+            
+            @Test("Hero Detail View")
+            @MainActor
+            func HeroDetailViewTest() throws {
+                let suc = HeroDetailView(id: 2, viewModel: HeroDetailViewModel(id: 2, useCaseHeroDetail: HeroDetailUseCaseMock()))
+                
+                let vStack = try suc.inspect().implicitAnyView().vStack()
+                #expect(vStack.count == 1)
             }
         }
     }
